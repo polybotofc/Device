@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Info Perangkat - Hacker Style</title>
+<style>
+body {
+  background-color: black;
+  color: lime;
+  font-family: monospace;
+}
+#container {
+  border: 2px solid lime;
+  padding: 20px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 600px;
+}
+h1 {
+  text-align: center;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+p {
+  margin-bottom: 10px;
+}
+.blinking {
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { opacity: 0; }
+}
+</style>
+</head>
+<body>
+<div id="container">
+  <h1 class="blinking">--= Informasi Perangkat =--</h1>
+  <p>Nama Perangkat: <span id="device-name"></span></p>
+  <p>Sistem Operasi: <span id="os"></span></p>
+  <p>Browser: <span id="browser"></span></p>
+  <p>Kecepatan Koneksi: <span id="connection-speed"></span></p>
+  <p>IP Address: <span id="ip-address"></span></p>
+  <p>Bot Devices: <span id="bot-count"></span></p>
+  <p>By Luthfi</p>
+</div>
+
+<script>
+// Mendapatkan elemen HTML untuk menampilkan informasi
+const deviceName = document.getElementById('device-name');
+const os = document.getElementById('os');
+const browser = document.getElementById('browser');
+const connectionSpeed = document.getElementById('connection-speed');
+const ipAddress = document.getElementById('ip-address');
+const botCount = document.getElementById('bot-count');
+
+// Mengisi informasi perangkat
+deviceName.textContent = navigator.userAgent;
+os.textContent = navigator.platform;
+browser.textContent = navigator.userAgent;
+
+// Simulasi IP address 
+ipAddress.textContent = "192.168.1." + Math.floor(Math.random() * 255);
+
+// Fungsi untuk mengupdate kecepatan koneksi secara dinamis
+function updateConnectionSpeed() {
+  let speed = Math.floor(Math.random() * 100) + 1;
+  connectionSpeed.textContent = speed + " Mbps";
+}
+
+// Update kecepatan koneksi setiap 3 detik
+setInterval(updateConnectionSpeed, 1);
+
+// Simulasi jumlah bot devices (angka acak antara 1 dan 10)
+let bots = Math.floor(Math.random() * 10) + 1;
+botCount.textContent = bots; 
+</script>
+</body>
+</html>
